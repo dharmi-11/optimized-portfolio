@@ -1,16 +1,27 @@
 function resolveSiteUrl() {
-  const fallback =
-    process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://example.com";
   const candidate = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
 
   if (!candidate) {
-    return fallback;
+    if (vercelUrl) {
+      return `https://${vercelUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}`;
+    }
+
+    return process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://example.com";
   }
 
   try {
     return new URL(candidate).toString().replace(/\/$/, "");
   } catch {
-    return fallback;
+    if (vercelUrl) {
+      return `https://${vercelUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}`;
+    }
+
+    return process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://example.com";
   }
 }
 
