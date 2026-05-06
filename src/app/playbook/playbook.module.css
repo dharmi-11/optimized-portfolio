@@ -1,0 +1,235 @@
+.page {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.hero,
+.resourcesSection,
+.scheduleSection,
+.deploySection,
+.envSection {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  align-items: start;
+  padding-top: 1rem;
+}
+
+.heroContent,
+.goalPanel,
+.resourceCard,
+.dayCard,
+.checklistItem,
+.codeBlock {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.heroContent {
+  border-radius: 34px;
+  padding: 1.8rem;
+}
+
+.tag,
+.dayLabel {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: rgba(17, 19, 33, 0.06);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.hero h1,
+.resourcesSection h2,
+.scheduleSection h2,
+.deploySection h2,
+.envSection h2,
+.goalPanel h2 {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.06em;
+  line-height: 0.97;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  margin: 1rem 0;
+  max-width: 10ch;
+}
+
+.hero p,
+.goalPanel li,
+.resourceCard p,
+.dayCard p,
+.dayCard li,
+.deploySection p,
+.checklistItem p {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.9rem 1.25rem;
+}
+
+.primaryAction {
+  background: var(--surface-strong);
+  color: var(--text-inverse);
+}
+
+.secondaryAction {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.goalPanel {
+  border-radius: 30px;
+  padding: 1.5rem;
+}
+
+.goalPanel h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.goalPanel ul,
+.dayCard ul {
+  padding-left: 1.15rem;
+}
+
+.resourceGrid,
+.dayGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.resourceCard,
+.dayCard {
+  border-radius: 26px;
+  padding: 1.35rem;
+}
+
+.resourceCard span,
+.resourceCard strong {
+  display: block;
+}
+
+.resourceCard span {
+  color: var(--text-soft);
+  margin-bottom: 0.7rem;
+}
+
+.resourceCard strong,
+.dayCard h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.45rem;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.deploySection {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.85fr);
+  padding: 1.7rem;
+  border-radius: 34px;
+  background: linear-gradient(135deg, rgba(255, 107, 44, 0.94), rgba(17, 24, 39, 0.96));
+  color: var(--text-inverse);
+}
+
+.deploySection p,
+.deploySection .tag {
+  color: rgba(248, 250, 252, 0.82);
+}
+
+.deploySection .tag {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.checklist {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem 1.05rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.checklistItem span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  margin-top: 0.55rem;
+  background: #fff7ba;
+}
+
+.codeBlock {
+  border-radius: 28px;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+.codeBlock code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .deploySection,
+  .resourceGrid,
+  .dayGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 2rem 0 3rem;
+  }
+
+  .heroContent,
+  .goalPanel,
+  .resourceCard,
+  .dayCard,
+  .deploySection,
+  .codeBlock {
+    padding: 1.2rem;
+  }
+
+  .hero h1,
+  .resourcesSection h2,
+  .scheduleSection h2,
+  .deploySection h2,
+  .envSection h2 {
+    font-size: 2.35rem;
+  }
+}

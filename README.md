@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Portfolio
 
-## Getting Started
+Production-ready Next.js portfolio app built from the Week 20 brief: production optimization + deployment.
 
-First, run the development server:
+## What is included
+
+- Day 1: image optimization with `next/image` and font optimization with `next/font`
+- Day 2: SEO metadata, canonical URLs, Open Graph, `robots.ts`, `sitemap.ts`, and `manifest.ts`
+- Day 3: performance monitoring with `useReportWebVitals` and an `/api/insights` endpoint
+- Day 4: environment-variable handling plus security headers in `next.config.ts`
+- Day 5: deployment-ready portfolio and a `/playbook` page that documents the full sprint
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` and set values as needed:
 
-## Learn More
+```bash
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_ENABLE_WEB_VITALS=true
+LIGHTHOUSE_TARGET_SCORE=95
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Validate before deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Vercel deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Import the repository into Vercel.
+2. Add the environment variables from `.env.example`.
+3. Deploy and verify `/robots.txt`, `/sitemap.xml`, and link previews.
+4. Run Lighthouse against the deployed URL and confirm the target score.
